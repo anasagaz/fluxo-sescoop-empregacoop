@@ -346,6 +346,21 @@
             line-height: 1.3;
         }
 
+        .completion-circle.engagement-circle .completion-text.completion-list-wrap {
+            text-align: left;
+            padding-left: 1em;
+        }
+
+        .completion-circle.engagement-circle .completion-list {
+            margin: 0;
+            padding-left: 1.2em;
+            text-align: left;
+        }
+
+        .completion-circle.engagement-circle .completion-list li {
+            margin-bottom: 0.35em;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -510,10 +525,10 @@
                 <div class="card-chip">Plataforma B2C</div>
                 <div class="card" data-step="3">
                     <div class="card-image">
-                        <h2 class="card-image-title">Inicia a conversa com o assistente</h2>
+                        <h2 class="card-image-title">Inicia a conversa com o assistente e faz registro na plataforma</h2>
                     </div>
                     <div class="card-content">
-                        <p class="card-description">Breve resumo das etapas e do processo que seguirá como candidato.</p>
+                        <p class="card-description">Interação de boas-vindas que apresenta rapidamente a jornada e convida o candidato a começar. Em seguida, ele escolhe como deseja se autenticar na plataforma: por login social (Gmail, Facebook, LinkedIn) ou por código enviado por e-mail ou WhatsApp.</p>
                     </div>
                 </div>
             </div>
@@ -526,10 +541,10 @@
                 <div class="card-chip">Plataforma B2C</div>
                 <div class="card" data-step="4">
                     <div class="card-image">
-                        <h2 class="card-image-title">Realiza cadastro na plataforma</h2>
+                        <h2 class="card-image-title">Realiza cadastro do perfil na plataforma</h2>
                     </div>
                     <div class="card-content">
-                        <p class="card-description">Nome completo<br>E-mail (Se a verificação for por telefone)<br>CPF (Chave única de acesso)<br>Data de nascimento (Campo p/ Studion)<br>Gênero (Campo p/ Studion)<br>Cidade<br>Telefone (Se a verificação for por e-mail)</p>
+                        <p class="card-description">Informa:<br>Nome completo<br>E-mail (Se escolheu autenticação por telefone)<br>CPF (Será a chave única de acesso)<br>Data de nascimento (Campo Studion)<br>Gênero (Campo Studion)<br>Cidade<br>Telefone (Se escolheu autenticação por e-mail)</p>
                     </div>
                 </div>
             </div>
@@ -542,10 +557,10 @@
                 <div class="card-chip">Plataforma B2C</div>
                 <div class="card highlight-green" data-step="5">
                     <div class="card-image">
-                        <h2 class="card-image-title">Confirma Termos e condições e o acesso à plataforma</h2>
+                        <h2 class="card-image-title">Confirma Termos e condições</h2>
                     </div>
                     <div class="card-content">
-                        <p class="card-description">O candidato confirma os termos e condições e obtém acesso à plataforma.</p>
+                        <p class="card-description">O candidato confirma os Termos e Condições de uso e a política de privacidade da plataforma, autorizando o tratamento de seus dados pessoais para participação no projeto, criação de perfil e conexão com oportunidades e trilhas de capacitação.</p>
                         <div class="card-delivery-indicator">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M16.667 5L7.5 14.167 3.333 10" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -565,7 +580,12 @@
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <div class="completion-text">Envio de e-mails ou mensagens via WhatsApp para reengajar o candidato caso ele abandone essa etapa.</div>
+                <div class="completion-text completion-list-wrap">
+                    <ul class="completion-list">
+                        <li>E-mail de boas-vindas à plataforma</li>
+                        <li>Em caso de abandono da jornada, enviado e-mail de engajamento</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Arrow -->
@@ -576,10 +596,10 @@
                 <div class="card-chip">Plataforma B2C</div>
                 <div class="card" data-step="6">
                     <div class="card-image">
-                        <h2 class="card-image-title">Inicia entrevista para criar currículo</h2>
+                        <h2 class="card-image-title">Inicia entrevista para criar Emprecard</h2>
                     </div>
                     <div class="card-content">
-                        <p class="card-description">A IA atuará como assistente, ajudando você a compartilhar informações além do currículo para criar um perfil mais completo e gerar sugestões de trilhas e vagas.</p>
+                        <p class="card-description">A IA auxilia o candidato a compartilhar informações além do currículo para construir um perfil profissional mais completo, chamado EmpreCard, que orienta recomendações de trilhas e vagas compatíveis.</p>
                     </div>
                 </div>
             </div>
@@ -593,7 +613,12 @@
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <div class="completion-text">Envio de e-mails ou mensagens via WhatsApp para reengajar o candidato caso ele abandone essa etapa.</div>
+                <div class="completion-text completion-list-wrap">
+                    <ul class="completion-list">
+                        <li>E-mail de boas-vindas à plataforma</li>
+                        <li>Em caso de abandono da jornada, enviado e-mail de engajamento</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Arrow -->
@@ -664,7 +689,12 @@
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <div class="completion-text">Envio de e-mails ou mensagens via WhatsApp para reengajar o candidato caso ele abandone essa etapa.</div>
+                <div class="completion-text completion-list-wrap">
+                    <ul class="completion-list">
+                        <li>E-mail de boas-vindas à plataforma</li>
+                        <li>Em caso de abandono da jornada, enviado e-mail de engajamento</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Arrow -->
@@ -873,20 +903,20 @@
                 description: "Website que funciona como porta de entrada do projeto, apresentando a proposta, a jornada e incentivando o candidato a iniciar sua participação no ambiente do candidato."
             },
             3: {
-                title: "Inicia a conversa com o assistente",
-                description: "Breve resumo das etapas e do processo que seguirá como candidato."
+                title: "Inicia a conversa com o assistente e faz registro na plataforma",
+                description: "Interação de boas-vindas que apresenta rapidamente a jornada e convida o candidato a começar. Em seguida, ele escolhe como deseja se autenticar na plataforma: por login social (Gmail, Facebook, LinkedIn) ou por código enviado por e-mail ou WhatsApp."
             },
             4: {
-                title: "Realiza cadastro na plataforma",
-                description: "Nome completo<br>E-mail (Se a verificação for por telefone)<br>CPF (Chave única de acesso)<br>Data de nascimento (Campo p/ Studion)<br>Gênero (Campo p/ Studion)<br>Cidade<br>Telefone (Se a verificação for por e-mail)<br><br><strong>Essas informações ficam salvas na memória do chat IA.</strong>"
+                title: "Realiza cadastro do perfil na plataforma",
+                description: "Informa:<br>Nome completo<br>E-mail (Se escolheu autenticação por telefone)<br>CPF (Será a chave única de acesso)<br>Data de nascimento (Campo Studion)<br>Gênero (Campo Studion)<br>Cidade<br>Telefone (Se escolheu autenticação por e-mail)"
             },
             5: {
-                title: "Confirma Termos e condições e o acesso à plataforma",
-                description: "O candidato confirma os termos e condições e obtém acesso à plataforma."
+                title: "Confirma Termos e condições",
+                description: "O candidato confirma os Termos e Condições de uso e a política de privacidade da plataforma, autorizando o tratamento de seus dados pessoais para participação no projeto, criação de perfil e conexão com oportunidades e trilhas de capacitação."
             },
             6: {
-                title: "Inicia entrevista para criar currículo",
-                description: "A IA atuará como assistente, ajudando você a compartilhar informações além do currículo para criar um perfil mais completo e gerar sugestões de trilhas e vagas.<br><br><strong>1. Informações técnicas (baseadas no currículo)</strong><br>Envie seu currículo e complemente com informações sobre sua experiência profissional, principais habilidades, pontos de desenvolvimento, perfil profissional e áreas de interesse. Esses dados ajudam a estruturar seu perfil inicial na plataforma.<br><br>⸻<br><br><strong>2. Além do currículo (opcional)</strong><br>Compartilhe informações mais pessoais sobre sua jornada profissional, como o que você gostou ou não no último trabalho, motivos de mudança, valores e estilo de trabalho, além de sonhos, objetivos, motivações e inseguranças. Com isso, criamos um resumo mais completo sobre você."
+                title: "Inicia entrevista para criar Emprecard",
+                description: "A IA auxilia o candidato a compartilhar informações além do currículo para construir um perfil profissional mais completo, chamado EmpreCard, que orienta recomendações de trilhas e vagas compatíveis."
             },
             7: {
                 title: "Descreve interesse de carreira / Seleciona vagas de interesse",
