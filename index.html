@@ -98,6 +98,25 @@
             scroll-behavior: smooth;
         }
 
+        .flow-cooperativas-inicio {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-shrink: 0;
+        }
+
+        #journey-wrapper[data-segment="candidato"] .flow-cooperativas-inicio {
+            display: none !important;
+        }
+
+        #journey-wrapper[data-segment="cooperativas"] #journey-candidatos {
+            display: none !important;
+        }
+
+        #journey-wrapper[data-segment="cooperativas"] #journey-cooperativas {
+            display: flex !important;
+        }
+
         .journey-container::-webkit-scrollbar {
             height: 8px;
         }
@@ -461,7 +480,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="journey-wrapper" data-segment="candidato">
         <h1 class="title">Jornadas EmpregaCoop</h1>
         
         <div style="display: flex; justify-content: center;">
@@ -471,7 +490,7 @@
             </div>
         </div>
         
-        <div class="journey-container">
+        <div id="journey-candidatos" class="journey-container">
             <!-- Etapa 1 -->
             <div class="card-wrapper">
                 <div class="card-chip orange">E-mail / Whatsapp</div>
@@ -750,6 +769,8 @@
             <!-- Arrow -->
             <div class="arrow-between"></div>
 
+            <!-- Início fluxo Cooperativas (oculto na vista Candidatos) -->
+            <div class="flow-cooperativas-inicio">
             <!-- Cooperativas - Card Laranja -->
             <div class="card-wrapper">
                 <div class="card-chip orange">E-mail</div>
@@ -797,6 +818,8 @@
 
             <!-- Arrow -->
             <div class="arrow-between"></div>
+            </div>
+            <!-- Fim fluxo Cooperativas início -->
 
             <!-- Etapa 16 - Card Vermelho 1 -->
             <div class="card-wrapper">
@@ -871,6 +894,57 @@
                 </div>
             </div>
 
+            <!-- Arrow -->
+            <div class="arrow-between"></div>
+
+            <!-- Completion Circle - Contratação SESCOOP (fim da jornada Candidato) -->
+            <div class="completion-circle">
+                <svg class="completion-check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M6 21c0-3.314 2.686-6 6-6s6 2.686 6 6"/>
+                </svg>
+                <div class="completion-text">Cooperativa informa contratação para SESCOOP</div>
+            </div>
+
+        </div>
+
+        <!-- Fluxo somente Cooperativas (3 cards) -->
+        <div id="journey-cooperativas" class="journey-container" style="display: none;">
+            <div class="card-wrapper">
+                <div class="card-chip orange">E-mail</div>
+                <div class="card orange" data-step="20">
+                    <div class="card-image">
+                        <h2 class="card-image-title">Recebe o e-mail de convite da OCB para participar do projeto.</h2>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-between"></div>
+            <div class="card-wrapper">
+                <div class="card-chip red">Ambiente Cooperativas</div>
+                <div class="card red" data-step="21">
+                    <div class="card-image">
+                        <h2 class="card-image-title">Se autentica na plataforma</h2>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Autenticação via e-mail</p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-between"></div>
+            <div class="card-wrapper">
+                <div class="card-chip red">Ambiente Cooperativas</div>
+                <div class="card red" data-step="22">
+                    <div class="card-image">
+                        <h2 class="card-image-title">Faz cadastro na plataforma</h2>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">Adiciona CNPJ, Dados da empresa, responsável administrador pelo projeto</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1038,16 +1112,14 @@
         // Segment control functionality
         const segmentButtons = document.querySelectorAll('.segment-button');
         
+        const journeyWrapper = document.getElementById('journey-wrapper');
+        
         segmentButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 segmentButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 button.classList.add('active');
-                
                 const segment = button.getAttribute('data-segment');
-                // You can add logic here to filter/show different content based on segment
-                console.log('Selected segment:', segment);
+                journeyWrapper.setAttribute('data-segment', segment);
             });
         });
     </script>
