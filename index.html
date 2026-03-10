@@ -429,6 +429,92 @@
             color: #000;
         }
 
+        .flow-wireframes-btn {
+            display: block;
+            margin: 24px auto 0;
+            padding: 14px 28px;
+            font-size: 1em;
+            font-weight: 700;
+            color: #1A2B63;
+            background: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .flow-wireframes-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-1px);
+        }
+
+        #candidato-flow-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #journey-wrapper[data-segment="cooperativas"] #candidato-flow-wrapper {
+            display: none;
+        }
+
+        .flow-wireframes-btn-wrap {
+            text-align: center;
+            padding: 24px 20px 32px;
+        }
+
+        .flow-wireframes-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .flow-wireframes-modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 60px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .flow-wireframes-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .flow-wireframes-close:hover {
+            opacity: 0.8;
+        }
+
+        .flow-wireframes-scroll {
+            width: 100%;
+            height: calc(100% - 40px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .flow-wireframes-scroll img {
+            height: 85vh;
+            width: auto;
+            min-width: auto;
+            object-fit: contain;
+        }
+
         .modal-description {
             color: #666;
             line-height: 1.6;
@@ -490,6 +576,7 @@
             </div>
         </div>
         
+        <div id="candidato-flow-wrapper">
         <div id="journey-candidatos" class="journey-container">
             <!-- Etapa 1 -->
             <div class="card-wrapper">
@@ -906,6 +993,10 @@
             </div>
 
         </div>
+            <div class="flow-wireframes-btn-wrap">
+                <button class="flow-wireframes-btn" id="btnFlowWireframes">Ver fluxo de telas do candidato</button>
+            </div>
+        </div>
 
         <!-- Fluxo somente Cooperativas (3 cards) -->
         <div id="journey-cooperativas" class="journey-container" style="display: none;">
@@ -1025,6 +1116,16 @@
                     <polyline points="20 6 9 17 4 12"/>
                 </svg>
                 <div class="completion-text">Cooperativa informa contratação para SESCOOP</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Fluxo de Telas Candidato -->
+    <div id="flowWireframesModal" class="flow-wireframes-modal">
+        <div class="flow-wireframes-modal-content">
+            <span class="flow-wireframes-close" id="closeFlowWireframes">&times;</span>
+            <div class="flow-wireframes-scroll">
+                <img src="assets/fluxo-candidato-wireframes.png" alt="Fluxo de telas do candidato">
             </div>
         </div>
     </div>
@@ -1210,6 +1311,26 @@
                 const segment = button.getAttribute('data-segment');
                 journeyWrapper.setAttribute('data-segment', segment);
             });
+        });
+
+        // Fluxo de telas Candidato - modal com scroll horizontal
+        const btnFlowWireframes = document.getElementById('btnFlowWireframes');
+        const flowWireframesModal = document.getElementById('flowWireframesModal');
+        const closeFlowWireframes = document.getElementById('closeFlowWireframes');
+
+        btnFlowWireframes.addEventListener('click', () => {
+            flowWireframesModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeFlowWireframesModal() {
+            flowWireframesModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        closeFlowWireframes.addEventListener('click', closeFlowWireframesModal);
+        flowWireframesModal.addEventListener('click', (e) => {
+            if (e.target === flowWireframesModal) closeFlowWireframesModal();
         });
     </script>
 </body>
